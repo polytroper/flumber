@@ -2,8 +2,7 @@ var Botkit = require('botkit')
 var math = require('mathjs')
 
 var redisConfig = {
-    port: process.env.redisPort,
-    url: process.env.redisUrl
+    url: process.env.REDISCLOUD_URL
 }
 var redisStorage = require('botkit-storage-redis')(redisConfig)
 
