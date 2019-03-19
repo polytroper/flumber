@@ -1,6 +1,11 @@
 var Botkit = require('botkit')
 var math = require('mathjs')
-var redisStorage = require('botkit-storage-redis')()
+
+var redisConfig = {
+    port: process.env.redisPort,
+    url: process.env.redisUrl
+}
+var redisStorage = require('botkit-storage-redis')(redisConfig)
 
 console.log("Booting flumber bot")
 
