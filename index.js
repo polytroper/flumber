@@ -1,5 +1,6 @@
 var Botkit = require('botkit')
 var math = require('mathjs')
+var redisStorage = require('botkit-storage-redis')(redisConfig)
 
 console.log("Booting flumber bot")
 
@@ -8,6 +9,7 @@ var controller = Botkit.slackbot({
   clientSecret: process.env.clientSecret,
   clientSigningSecret: process.env.clientSigningSecret,
   scopes: ['bot', 'chat:write:bot'],
+  storage: redisStorage
 });
 
 controller.setupWebserver(process.env.PORT,function(err,webserver) {
