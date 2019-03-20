@@ -9,9 +9,9 @@ var redisStorage = require('botkit-storage-redis')(redisConfig)
 console.log("Booting flumber bot")
 
 var controller = Botkit.slackbot({
-  clientId: process.env.clientId,
-  clientSecret: process.env.clientSecret,
-  clientSigningSecret: process.env.clientSigningSecret,
+  clientId: process.env.SLACK_CLIENT_ID,
+  clientSecret: process.env.SLACK_CLIENT_SECRET,
+  clientSigningSecret: process.env.SLACK_CLIENT_SIGNING_SECRET,
   scopes: ['bot', 'chat:write:bot'],
   storage: redisStorage
 });
