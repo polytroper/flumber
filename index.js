@@ -16,7 +16,7 @@ var controller = Botkit.slackbot({
   storage: redisStorage
 });
 
-controller.setupWebserver(process.env.PORT,function(err,webserver) {
+controller.setupWebserver(process.env.PORT, function(err,webserver) {
     controller.createWebhookEndpoints(controller.webserver);
     controller.createOauthEndpoints(controller.webserver);
 });
@@ -43,9 +43,9 @@ controller.hears('.*', 'direct_mention,direct_message', (bot, message) => {
     resolve(reply)
   })
   .then((res) => {
-    return bot.reply(message, res);
+    return bot.replyInThread(message, res);
   })
   .error((error) => {
-    return bot.reply(message, error);
+    return bot.replyInThread(message, error);
   })
 });
